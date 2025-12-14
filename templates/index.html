@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake News Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">FAKE NEWS DETECTION</div>
+
+    <h2>Deteksi Hoaks</h2>
+
+    <form method="POST">
+        <input type="text" name="news" placeholder="Masukkan teks berita" required>
+        <button type="submit">Deteksi</button>
+    </form>
+
+    {% if prediction %}
+    <div class="result">
+        <h1 class="{{ prediction }}">{{ prediction }}</h1>
+        <p>Tingkat Kepercayaan: {{ confidence }}%</p>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
